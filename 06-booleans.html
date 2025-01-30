@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booleans</title>
+
+</head>
+
+<body>
+    <script>
+    console.log(3 > 5);
+    console.log(typeof 'true');
+    console.log(typeof true);
+
+
+    const age = 30;
+    //checking if someone is old enough to drive
+    if (age > 16){
+        console.log('you are old enough to drive');
+    }else if (age == 15){
+        console.log('you are almost old enough to drive');
+    }else{
+        console.log("you aren't old enough to drive");
+    }
+
+    console.log(true || false);
+    console.log(true && false);
+
+    // we call this a truthy value because it behaves just like true
+    if(5){
+        console.log("truthy");
+    }
+    // we call 0 fasly because it behaves just like false
+    if(0){
+        console.log("truthy");
+    }
+    //falsy values in js: False/0/''/NaN(not a number)/undefined/null
+
+    // we use truthy and falsy as shortcuts in code
+    // this will display "cart has products" unless it turns to 0
+    let cartQuantity = 5;
+    if(cartQuantity){
+        console.log('cart has products');
+    }
+    //Nan
+    console.log("text"/5);
+    //undefined: has no value
+    let variable;
+    console.log(variable);
+
+    //ternary operator: if it's true we get the first one. If it's falsde we get the second one.
+    const result = true ? 'truthy' : 'falsy';
+    console.log(result);
+    
+     
+    </script>
+</body>
+
+</html>
