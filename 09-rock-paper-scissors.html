@@ -1,3 +1,6 @@
+<!--Having issues with the variable scopes :(((-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +23,8 @@
     reset();
     
     ">reset</button>
+
+    <p class="js-score"></p>
    
     <!-- When we click a button: 1.computer randomly selects a move 
     2. compares user input to what the computer selected
@@ -36,8 +41,7 @@
 
     let score = JSON.parse(localStorage.getItem('score')) || { win: 0, loss: 0, tie: 0 };
   
-    
-
+  
 
 
     function displayScore(){
@@ -60,11 +64,16 @@
         
         
         
+        
 
     }
             
         
-
+//function to update score
+    function updateScore(){
+        document.querySelector('.js-score').innerHTML = 
+        `you picked ${playerMove} and the computer picked ${computerMove}. ${result}.tie: ${score.tie}, wins: ${score.win}, losses: ${score.loss}`;
+    }
     
     
     function reset(){
@@ -75,6 +84,7 @@
             
         };
         localStorage.removeItem('score');
+        updateScore();
         alert("Scores reset!");
     }
 
@@ -84,6 +94,8 @@
     // function for game logic
     function playGame(playerMove){
     pickComputerMove();
+      
+    
     
     
     if(playerMove === 'scissors'){
@@ -121,11 +133,13 @@
         }
     }
     }
-        
       
+
         displayScore();
-        alert(`you picked ${playerMove} and the computer picked ${computerMove}. ${result}.tie: ${score.tie}, wins: ${score.win}, losses: ${score.loss}`);
+        updateScore();
     }
+
+
     // function to pick a random move for the computer
  function pickComputerMove() {
     const randomNumber = Math.random();
@@ -138,6 +152,9 @@
     }
     console.log(computerMove);
 }
+
+
+
 
     </script>
 </body>

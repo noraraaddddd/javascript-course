@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM</title>
+
+</head>
+
+<body>
+<button>hello</button>
+<button class='js-btn'>hahaha</button>
+<!-- DOM is another built in object -->
+
+    <script>
+    // removes everything on the page and replaces it with this text
+    //document.body.innerHTML = 'HELLO';
+    document.title = 'good job';
+    console.log(document.body);
+    //inner html gives us control over all the inner html elements
+    console.log(document.querySelector('button'));
+    document.querySelector('button').innerHTML = 'changed';
+    //query selector allows us to select html elements
+    console.log(document.querySelector('.js-btn'));
+
+    //DOM combines html and js together
+    const buttonElement = document.querySelector('.js-btn');
+    console.log(buttonElement);
+    
+  
+    </script>
+</body>
+
+</html> 
+ 

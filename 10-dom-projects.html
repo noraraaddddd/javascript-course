@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Projects</title>
+    <style>
+    body{
+        font-family:arial;
+        
+    }
+    .sub-btn{
+        color:white;
+        border:none;
+        background-color:black;
+        padding:10px;
+        border-radius:50px;
+        padding-left:15px;
+        padding-right:15px;
+        font-weigth: bold;
+        cursor:pointer;
+        margin-bottom:30px;
+    }
+    .is-subscribed{
+        background-color:grey;
+        color:black;
+    }
+    .price{
+        padding:10px;
+        font-size:15px;
+    }
+    .calculate{
+        background-color:green;
+        font-size:15px;
+        padding:10px;
+    }
+
+    </style>
+
+</head>
+
+<body>
+<h1>Youtube Subscribe Button</h1>
+<button onclick="subscribe();"
+class = 'js-sub-btn sub-btn' 
+>Subscribe</button>
+
+    <!-- amazon shipping price-->
+    <p>Amazon Shipping Calculator</p>
+    <p>orders under 40$ += 10$ shipping</p>
+    <p>orders over 40$ -- free shipping</p>
+    <!--input element doesn't require closing tag(void element)-->
+    <!--We want to add functionality when we press a key-->
+    <!--clicks and keydowns are events, onclick and onkeydown are event listeners-->
+    <input class = "js-price price" placeholder="cost of order" onkeydown = 'Keyboard(event)';>
+
+    <button onclick="calculate();" class="calculate">calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <script>
+    function subscribe(){
+    const buttonElement = document.querySelector('.js-sub-btn');
+    if (buttonElement.innerHTML === 'subscribe'){ 
+    buttonElement.innerHTML = 'subscribed';
+    //classList can add a class when the button is clicked
+    buttonElement.classList.add('is-subscribed');
+    }
+    else{
+    buttonElement.innerHTML = 'subscribe';
+    buttonElement.classList.remove('is-subscribed');
+    }
+        
+    }
+
+    function calculate(){
+       
+        const inputElement = document.querySelector('.js-price');
+        let price = Number(inputElement.value);
+        if (price < 40){
+                price += 10;
+
+        }
+        else{ 
+            price;
+        }
+        document.querySelector('.js-total-cost').innerHTML = `$${price}`;
+    }
+
+   
+    
+     function Keyboard(){
+       
+        if(event.key === 'Enter'){
+        calculate();
+        }
+    }
+
+
+
+
+
+   
+    
+  
+    </script>
+</body>
+
+</html> 
+ 

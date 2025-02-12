@@ -17,6 +17,61 @@
     product.name = 'cotton socks';
     console.log(product.name);
 
+
+// we use bracket notation for words that are more than one word
+// we can add objects within objects
+    const product2 = {
+        name: 'socks',
+        'delivary-time': 'one day...',
+        //we use : when defining
+        rating : {
+            stars:4.5,
+            count:87
+
+        },
+        //we can also add a function because a function is just another type of value in js
+        // a function inside an object is a method!
+             fun: function function1(){
+            console.log('function inside object');
+
+        }
+
+    };
+    console.log(product2);
+    console.log(product2.name);
+    console.log(product2['name']);
+    console.log(product2.name);
+    console.log(product2['delivary-time']);
+    console.log(product2.rating.count);
+    product2.fun();
+    // console is an object
+    console.log(typeof console);
+    //log is a function inside the object console
+    console.log(typeof console.log);
+
+
+    //built in objects are provided by the language --> json(more universal)
+    // now we want to turn the object we made into json
+    //JSON doesn't support functions :(
+    console.log(JSON.stringify(product2));
+    //JSON back to js notation
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+
+    //variables are temporary and get deleted when we refresh the page so we use local storage instead
+
+
+    // objects are just references
+    const object1 = 'hello';
+    console.log(object1);
+
+    const object2 = {
+        message : 'good job',  
+    };
+    const {message} = object2;
+    console.log(message);
+
     </script>
 </body>
 
