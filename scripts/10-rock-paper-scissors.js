@@ -54,12 +54,10 @@ function reset() {
 
 let result = '';
 // function for game logic
-function playGame(playerMove) {
+function playGame(move) {
+    playerMove = move;
+
     pickComputerMove();
-
-
-
-
     if (playerMove === 'scissors') {
         if (computerMove === 'scissors') {
             result = 'tie';
@@ -70,36 +68,37 @@ function playGame(playerMove) {
         else if (computerMove === 'rock') {
             result = 'you lose';
         }
-
-
-        else if (playerMove === 'rock') {
-            if (computerMove === 'rock') {
-                result = 'tie';
-            }
-            else if (computerMove === 'paper') {
-                result = 'you lose';
-            }
-            else if (computerMove === 'scissors') {
-                result = 'you win';
-            }
-        }
-        else if (playerMove === 'paper') {
-            if (computerMove === 'paper') {
-                result = 'tie';
-            }
-            else if (computerMove === 'scissors') {
-                result = 'you lose';
-            }
-            else if (computerMove === 'rock') {
-                result = 'you win';
-            }
-        }
     }
 
 
-    displayScore();
-    updateScore();
+    else if (playerMove === 'rock') {
+        if (computerMove === 'rock') {
+            result = 'tie';
+        }
+        else if (computerMove === 'paper') {
+            result = 'you lose';
+        }
+        else if (computerMove === 'scissors') {
+            result = 'you win';
+        }
+    }
+    else if (playerMove === 'paper') {
+        if (computerMove === 'paper') {
+            result = 'tie';
+        }
+        else if (computerMove === 'scissors') {
+            result = 'you lose';
+        }
+        else if (computerMove === 'rock') {
+            result = 'you win';
+        }
+    }
 }
+
+
+displayScore();
+updateScore();
+
 
 
 // function to pick a random move for the computer

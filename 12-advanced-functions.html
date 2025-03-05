@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Functions</title>
+    
+</head>
+
+<body>
+<button class='js-button'>click</button>
+    <script>
+    const buttonElement = document.querySelector('js-button');
+    buttonElement.addEventListener('click', () => {console.log('click');})
+    buttonElement.addEventListener('click', () => {console.log('click2');})
+    //functions can be stored in variables because they are values
+    // writing function like this lets us take advantage of "hoisting". meaning we can call the function before it is defined.
+    function greeting(){
+        console.log('hello');
+    }
+    greeting();
+    
+    // the function name isn't needed here
+    const function1 = function greeting(){
+        console.log('hello2');
+    };
+    console.log(function1);
+    console.log(typeof function1);
+    function1();
+
+    // we can store a value in a object under the property fun
+    const object1 = {
+        num:2,
+        fun: function greeting(){
+            console.log('hello3');
+        }
+    };
+    object1.fun();
+
+    // js has a built in fuction called set timeout
+    // the second value is in millisecond
+    // this is asynchronous so it just sets a timer and goes to the next line
+    // the code we have written so far is synchronous because it gets executed line by line
+    setTimeout(
+        function(){
+            console.log('timeout');
+        }, 3000 
+    );
+    console.log('next line');
+
+
+    //setInterval is another asynchronous function
+    setInterval(
+        function(){
+            console.log('interval')
+        },3000
+    );
+    console.log('hehe');
+
+
+    // introducing forEach. The preferred way to loop through an array
+    [
+        'make dinner',
+        'wash dishes',
+        'watch youtube'
+    ].forEach(function(value,index){
+        if(value ==='wash dishes'){
+            return;
+
+        }
+        console.log(index);
+        console.log(value);
+
+    });
+
+
+    // A regular function
+const regularFunction = function (param, param2) {
+    console.log('hello');
+    return 5;
+};
+
+// mostly like a normal function
+const arrowFunction = (param, param2) => {
+    console.log('hello again');
+    return 5;
+
+};
+arrowFunction();
+
+//
+const oneParam = param => {
+    console.log(param + 1);
+
+};
+oneParam(2);
+
+const oneLine = () => 2 + 3;
+console.log(oneLine());
+
+  
+    </script>
+</body>
+
+</html> 
